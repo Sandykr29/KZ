@@ -8,11 +8,10 @@ createTasks=
 registerUser=
 
 {
-    "username":"u1",
-    "email":"e1",
-    "password":"p1"
+    "username":"user4",
+    "email":"email+4@gmail.com",
+    "password":"password4"
 }
-
 login=
 
 {

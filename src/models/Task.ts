@@ -14,7 +14,7 @@ const TaskSchema = new Schema<ITask>(
     completed: { type: Boolean, default: false },
     user: { type: Schema.Types.ObjectId, ref: "User", required: true },
   },
-  { timestamps: true }
+  { versionKey: false }
 );
 
 export default mongoose.model<ITask>("Task", TaskSchema);

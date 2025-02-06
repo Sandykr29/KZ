@@ -9,7 +9,6 @@ declare module "express-serve-static-core" {
 
 }
 
-
 // Create a new task
 export const createTask = async (req: Request, res: Response): Promise<void> => {
   const { title, description } = req.body;
@@ -43,12 +42,12 @@ export const getAllTasks = async (req: Request, res: Response): Promise<void> =>
 // Update a task's details
 export const updateTask = async (req: Request, res: Response): Promise<void> => {
   const { taskId } = req.params;
-  const { title, description, isCompleted } = req.body;
+  const { title, description, completed } = req.body;
 
   try {
     const task = await Task.findOneAndUpdate(
       { _id: taskId, user: req.userId },
-      { title, description, isCompleted },
+      { title, description, completed },
       { new: true }
     );
 
@@ -90,7 +89,7 @@ export const markTaskCompleted = async (req: Request, res: Response): Promise<vo
   try {
     const task = await Task.findOneAndUpdate(
       { _id: taskId, user: req.userId },
-      { isCompleted: true },
+      { completed: true },
       { new: true }
     );
 
@@ -113,7 +112,7 @@ export const markTaskPending = async (req: Request, res: Response): Promise<void
   try {
     const task = await Task.findOneAndUpdate(
       { _id: taskId, user: req.userId },
-      { isCompleted: false },
+      { completed: false },
       { new: true }
     );
 
