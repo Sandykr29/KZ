@@ -1,8 +1,9 @@
 # KZ Backend - Task Management System
 
-This is a backend application built with Node.js, Express, TypeScript, and MongoDB. It provides a RESTful API for managing tasks and user authentication. The application allows users to register, log in, create tasks, update tasks, mark tasks as completed or pending, and delete tasks.
+This is a backend application built with Node.js, Express, TypeScript, and MongoDB. It provides a RESTful API for managing tasks and user authentication. The application allows users to register, log in, create tasks, update tasks, mark tasks as completed or pending, delete tasks, and perform advanced searches and filtering.
 
-**Project Completed By**: Sandeep Kumar
+**Project Completed By**: Sandeep Kumar  
+**Live API URL**: [KZ Backend Live](https://kz-w1l6.onrender.com)
 
 ---
 
@@ -31,6 +32,11 @@ This is a backend application built with Node.js, Express, TypeScript, and Mongo
   - Update task details (title, description, completion status).
   - Mark a task as completed or pending.
   - Delete a task.
+- **Task Filtering & Search**:
+  - Retrieve completed tasks.
+  - Retrieve pending tasks.
+  - Search tasks by title or description.
+  - Combine filters to get specific results.
 - **Protected Routes**:
   - All task-related routes are protected and require a valid JWT token for access.
 
@@ -62,8 +68,8 @@ This is a backend application built with Node.js, Express, TypeScript, and Mongo
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/kz-backend.git
-   cd kz-backend
+   git clone https://github.com/Sandykr29/KZ.git
+   cd KZ
    ```
 2. **Install dependencies**:
    ```bash
@@ -173,6 +179,21 @@ Mark a task as completed.
 #### **PATCH** `/api/tasks/:taskId/pending`
 Mark a task as pending.
 
+#### **GET** `/api/tasks/task`
+Retrieve all tasks.
+
+#### **GET** `/api/tasks?status=completed`
+Retrieve all completed tasks.
+
+#### **GET** `/api/tasks?status=pending`
+Retrieve all pending tasks.
+
+#### **GET** `/api/tasks?search=meeting`
+Search for tasks containing "meeting" in the title or description.
+
+#### **GET** `/api/tasks?status=completed&search=report`
+Retrieve all completed tasks containing "report" in the title or description.
+
 ---
 
 ## Folder Structure
@@ -232,7 +253,9 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 
 ---
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
 
 **Project Completed By**: Sandeep Kumar
+
+---
+
+
