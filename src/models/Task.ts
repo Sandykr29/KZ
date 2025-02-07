@@ -5,6 +5,7 @@ interface ITask extends Document {
   description: string;
   completed: boolean;
   user: mongoose.Schema.Types.ObjectId;
+  createdAt: Date;
 }
 
 const TaskSchema = new Schema<ITask>(
@@ -13,8 +14,9 @@ const TaskSchema = new Schema<ITask>(
     description: { type: String, required: true },
     completed: { type: Boolean, default: false },
     user: { type: Schema.Types.ObjectId, ref: "User", required: true },
+
   },
-  { versionKey: false }
+  { versionKey: false , timestamps: true }
 );
 
 export default mongoose.model<ITask>("Task", TaskSchema);
